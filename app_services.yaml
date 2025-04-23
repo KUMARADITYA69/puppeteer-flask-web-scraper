@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: puppeteer-flask-app
+spec:
+  selector:
+    app: puppeteer-flask-app
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30036  
+

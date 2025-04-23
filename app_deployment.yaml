@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: puppeteer-flask-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: puppeteer-flask-app
+  template:
+    metadata:
+      labels:
+        app: puppeteer-flask-app
+    spec:
+      containers:
+        - name: puppeteer-flask-app
+          image: puppeteer-flask-app:latest
+          imagePullPolicy: Never  # this enable k8s to use locally built image 
+          ports:
+            - containerPort: 5000
+
